@@ -561,7 +561,7 @@ label start:
     r "Aku lupa hari ini ujian online..."
 
     r "Mana susah banget lagi ini.."
-
+    label homeworkhelp:
     menu:
 
         "Inisiatif membantu adiknya dan berhenti mengobrol dengan teman online" :
@@ -572,11 +572,11 @@ label start:
             show ruth happy
             r "WIIII BENERAN YA KAK?!"
             k "Iyaa"
-            $ hangmanGame("asean","asosiasi negara asia tenggara")
-            $ hangmanGame("manila","ibukota filipina")
-            $ hangmanGame("vietnam","Negeri naga biru")
-            $ hangmanGame("brunei","Letak istana negara terbesar di dunia")
-            $ hangmanGame("indonesia","Negara terbesar di asean")
+            $ hangmanGame("asean","asosiasi negara asia tenggara", 1)
+            $ hangmanGame("manila","ibukota filipina", 1)
+            $ hangmanGame("vietnam","Negeri naga biru", 1)
+            $ hangmanGame("brunei","Letak istana negara terbesar di dunia", 1)
+            $ hangmanGame("indonesia","Negara terbesar di asean", 1)
             scene kamar ruth
             show nathan serius at left
             show ruth serius
@@ -607,11 +607,11 @@ label start:
             hide ruth kesusahan
             show ruth happy
             r "Yeaaayyy!"
-            $ hangmanGame("bintang","Lambang sila pertama pancasila")
-            $ hangmanGame("yogyakarta","Ibukota Indonesia tahun 1949")
-            $ hangmanGame("habibie","Presiden ke-3 indonesia")
-            $ hangmanGame("kalimantan","pulau terbesar ke-2 di indonesia")
-            $ hangmanGame("borobudur","candi terbesar di indonesia")
+            $ hangmanGame("bintang","Lambang sila pertama pancasila", 1)
+            $ hangmanGame("yogyakarta","Ibukota Indonesia tahun 1949", 1)
+            $ hangmanGame("habibie","Presiden ke-3 indonesia", 1)
+            $ hangmanGame("kalimantan","pulau terbesar ke-2 di indonesia", 1)
+            $ hangmanGame("borobudur","candi terbesar di indonesia", 1)
 
 
 
@@ -738,10 +738,181 @@ label start:
     hide kevin happy
     hide ruth happy
     scene ombak
-    n "WOHOOOOOO"
-    n "Eh, sepertinya Ruth mempunyai teman baru disitu"
-    n "eh-eh-EHHHHH untung nggak jatuh... aku harus menjaga keseimbanganku dulu..."
+    k "WOHOOOOOO"
+    k "Eh, sepertinya Ruth mempunyai teman baru disitu"
+    k "eh-eh-EHHHHH untung nggak jatuh... aku harus menjaga keseimbanganku dulu..."
     #MINIGAME
+    if surfsuccess:
+        jump safesurf
+    else:
+        jump drowned
+
+    label safesurf:
+        k "YEAAAAAHHHH"
+        scene pantai
+        with fade
+        n "Hari semakin sore, saat ini, Nathan baru saja selesai berselancar"
+        show nathan happy
+        k "Berselancar pokoknya hal paling seru deh disini, jadi pengen terus!"
+        hide nathan happy
+        show nathan bingung
+        k "Ohiya"
+        k "Ruth daritadi dimana ya... belum kembali..."
+        k "Sepertinya aku harus jalan kearah tempat dia terakhir jalan tadi..."
+
+
+    label drowned:
+        k "EH EHHHHH AAAAAAAAAAAA!"
+        scene pantai
+        with fade
+        n "Nathan tenggelam ditengah-tengah ia berselancar."
+        n "Ia diselamatkan oleh penjaga pantai dan kemudian dibawa ke pos terdekat."
+
+    scene hotel with fade
+    show rachel bingung
+    i "Aduh... Dimana ya anak-anak yah?"
+    show anton serius at right
+    a "Iya... semakin sore lagi ya..."
+    hide rachel bingung
+    show rachel sedih
+    i "Mereka juga nggak bisa ditelfon...."
+    a "Ayah jalan ke mereka aja ya, ibu jaga diri sebentar disini."
+    i "Kamu yakin mau ke mereka? Nanti kalo kamu nyasar gimana?"
+    hide anton serius
+    show anton happy at right
+    a "Tenang saja, ada gulge maps!"
+    a "Nanti ayah juga berkabar kalo udah ketemu"
+    i "Jangan nyasar ya..."
+    a "Tenang, ayah tidak akan nyasar!"
+    a "Ayah berangkat dulu ya!"
+    i "Hati-hati..."
+    hide anton happy
+    hide rachel sedih
+    scene hutan
+    with fade
+    show anton serius
+    a "Hmm kayaknya petanya aneh..."
+    a "Disini aku belum jalan dari tempat awal masuk hutan...."
+    a "Padahal kan aku udah jalan lumayan Lama"
+    "*DRINGGGGGGGGGGGG*"
+    a "Apa itu?"
+    show arahan at right
+    hide anton serius
+    show anton bingung
+    a "Panah-panah?"
+    "JANGAN."
+    "SAMPAI."
+    "SALAH."
+    "TERUS."
+    "LIHAT."
+    "DEPAN."
+    a "Suara apa itu?!"
+    "JANGAN."
+    "LIHAT."
+    "BELAKANG."
+    hide arahan
+    a "Okay.... ini mulai aneh"
+    a "Tapi sepertinya arahan ini akan berguna untuk menyusuri hutan ini"
+    a "Hm... oke... pertama-tama menurut arahannya ke.."
+    menu:
+        "kiri":
+            a "Okay..."
+            a "Hmm.. kalo ini ke...."
+            menu:
+                "kiri":
+                    a "Kalau tidak salah kesini..."
+                    a "Eh? jalan buntu?"
+                    hide anton bingung
+                    "Sepertinya kau salah arah....."
+                    a "Siapa disitu?!"
+                    show siluet
+                    "Akan ku arahkan kau ke jalan keluarnya..."
+
+                "lurus":
+                    a "Kalau tidak salah kesini..."
+                    a "Eh? jalan buntu?"
+                    hide anton bingung
+                    "Sepertinya kau salah arah....."
+                    a "Siapa disitu?!"
+                    show siluet
+                    "Akan ku arahkan kau ke jalan keluarnya..."
+
+                "kanan":
+                    a "Ini..."
+                    a "Kalau tidak salah tadi ke..."
+                    menu:
+                        "kiri":
+                            a "Kalau tidak salah kesini..."
+                            a "Eh? jalan buntu?"
+                            hide anton bingung
+                            "Sepertinya kau salah arah....."
+                            a "Siapa disitu?!"
+                            show siluet
+                            "Akan ku arahkan kau ke jalan keluarnya..."
+                        "lurus":
+                            a "okay... cukup panjang ya jalannya..."
+                            a "Yang ini ke...."
+                            menu:
+                                "kiri":
+                                "lurus":
+                                "kanan":
+                                a "Sepertinya aku semakin dekat..."
+                                a "Nah yang ini ke..."
+                                menu:
+                                    "kiri":
+                                        a "Kalau tidak salah kesini..."
+                                        a "Eh? jalan buntu?"
+                                        hide anton bingung
+                                        "Sepertinya kau salah arah....."
+                                        a "Siapa disitu?!"
+                                        show siluet
+                                        "Akan ku arahkan kau ke jalan keluarnya..."
+                                    "lurus":
+                                        hide anton bingung
+                                        show anton happy
+                                        a "Oh kelihatan jalan keluarnya!"
+                                        hide anton happy
+                                        scene pantai
+                                        with fade
+                                        hide anton happy
+                                        show anton bingung
+                                        a "Hmm.... aneh..."
+                                        a "Aku tidak bisa melihat Nathan dan Ruth.."
+                                        a "Dan pantainya terlihat sepi.."
+                                    "kanan":
+                                        a "Kalau tidak salah kesini..."
+                                        a "Eh? jalan buntu?"
+                                        hide anton bingung
+                                        "Sepertinya kau salah arah....."
+                                        a "Siapa disitu?!"
+                                        show siluet
+                                        "Akan ku arahkan kau ke jalan keluarnya..."
+                        "kanan":
+                            a "Kalau tidak salah kesini..."
+                            a "Eh? jalan buntu?"
+                            hide anton bingung
+                            "Sepertinya kau salah arah....."
+                            a "Siapa disitu?!"
+                            show siluet
+                            "Akan ku arahkan kau ke jalan keluarnya..."
+
+        "lurus":
+            a "Kalau tidak salah kesini..."
+            a "Eh? jalan buntu?"
+            hide anton bingung
+            "Sepertinya kau salah arah....."
+            a "Siapa disitu?!"
+            show siluet
+            "Akan ku arahkan kau ke jalan keluarnya..."
+
+        "kanan":
+            a "Kalau tidak salah kesini..."
+            a "Eh? jalan buntu?"
+            hide anton bingung
+            "Sepertinya kau salah arah....."
+            a "Siapa disitu?!"
+            show siluet
+            "Akan ku arahkan kau ke jalan keluarnya..."
 
 
     return
@@ -887,14 +1058,6 @@ label start:
         return
 
     ########MINIGAME#########
-    label pnc:
-        scene rak dapur
-
-
-    label dnd:
-        scene lantai koper
-
-
 
         label qte:
             scene mesin at fullsize
@@ -942,7 +1105,7 @@ init python:
     #        #images are named slide0.png...slide9.png
     #        renpy.image('hangman%d' % i, 'hangman%d.png' % i)
 
-        def hangmanGame( word, hint ):        #membuat fungsi hangman
+        def hangmanGame( word, hint, chapter ):        #membuat fungsi hangman
             hintword = hint                   #hint
             finishedWord = word               #kata yang ingin dimasukkan
             finishedWord = finishedWord.upper() #.upper membuat string menjadi uppercase
@@ -969,8 +1132,11 @@ init python:
                     lettersUsed += newLetter[0]
                     # This is where I would show a new graphic if I had graphic files to show
                     # renpy.show('hangman%d' % len(lettersUsed))
-                    if(len(lettersUsed) >= 5):
-                        renpy.jump('lose')
+                    if(len(lettersUsed) >= 5 && chapter == 1):
+                        renpy.jump('homeworkhelp')
+                    elif(len(lettersUsed) >= 5 && chapter == 2):
+                        renpy.jump('trapped')
+
 
 
 

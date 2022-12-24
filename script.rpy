@@ -1,4 +1,4 @@
-﻿
+
 # The script of the game goes in this file.
 
 # Declare characters used by this game. The color argument colorizes the
@@ -799,6 +799,7 @@ label start:
     show arahan at right
     hide anton serius
     show anton bingung
+    #KIRI, KANAN, LURUS, KANAN, LURUS
     a "Panah-panah?"
     "JANGAN."
     "SAMPAI."
@@ -854,39 +855,63 @@ label start:
                             a "Yang ini ke...."
                             menu:
                                 "kiri":
+                                    a "Kalau tidak salah kesini..."
+                                    a "Eh? jalan buntu?"
+                                    hide anton bingung
+                                    "Sepertinya kau salah arah....."
+                                    a "Siapa disitu?!"
+                                    show siluet
+                                    "Akan ku arahkan kau ke jalan keluarnya..."
                                 "lurus":
+                                    a "Kalau tidak salah kesini..."
+                                    a "Eh? jalan buntu?"
+                                    hide anton bingung
+                                    "Sepertinya kau salah arah....."
+                                    a "Siapa disitu?!"
+                                    show siluet
+                                    "Akan ku arahkan kau ke jalan keluarnya..."
                                 "kanan":
-                                a "Sepertinya aku semakin dekat..."
-                                a "Nah yang ini ke..."
-                                menu:
-                                    "kiri":
-                                        a "Kalau tidak salah kesini..."
-                                        a "Eh? jalan buntu?"
-                                        hide anton bingung
-                                        "Sepertinya kau salah arah....."
-                                        a "Siapa disitu?!"
-                                        show siluet
-                                        "Akan ku arahkan kau ke jalan keluarnya..."
-                                    "lurus":
-                                        hide anton bingung
-                                        show anton happy
-                                        a "Oh kelihatan jalan keluarnya!"
-                                        hide anton happy
-                                        scene pantai
-                                        with fade
-                                        hide anton happy
-                                        show anton bingung
-                                        a "Hmm.... aneh..."
-                                        a "Aku tidak bisa melihat Nathan dan Ruth.."
-                                        a "Dan pantainya terlihat sepi.."
-                                    "kanan":
-                                        a "Kalau tidak salah kesini..."
-                                        a "Eh? jalan buntu?"
-                                        hide anton bingung
-                                        "Sepertinya kau salah arah....."
-                                        a "Siapa disitu?!"
-                                        show siluet
-                                        "Akan ku arahkan kau ke jalan keluarnya..."
+                                    a "Sepertinya aku semakin dekat..."
+                                    a "Nah yang ini ke..."
+                                    menu:
+                                        "kiri":
+                                            a "Kalau tidak salah kesini..."
+                                            a "Eh? jalan buntu?"
+                                            hide anton bingung
+                                            "Sepertinya kau salah arah....."
+                                            a "Siapa disitu?!"
+                                            show siluet
+                                            "Akan ku arahkan kau ke jalan keluarnya..."
+                                        "lurus":
+                                            hide anton bingung
+                                            show anton happy
+                                            a "Oh kelihatan jalan keluarnya!"
+                                            hide anton happy
+                                            scene pantai
+                                            with fade
+                                            show anton bingung
+                                            a "Hmm.... aneh..."
+                                            a "Aku tidak bisa melihat Nathan dan Ruth.."
+                                            a "Dan pantainya terlihat sepi.."
+                                            hide anton bingung
+                                            show anton serius
+                                            a "RUTH! NATHAN!"
+                                            hide anton serius
+                                            show anton bingung
+                                            a "Dimana mereka ya..."
+                                            show siluet at right
+                                            a "Maaf pak, apakah bapak pernah melihat 2 orang ini di pantai?"
+                                            "Hmmm...?"
+                                        "kanan":
+                                            a "Kalau tidak salah kesini..."
+                                            a "Eh? jalan buntu?"
+                                            hide anton bingung
+                                            "Sepertinya kau salah arah....."
+                                            a "Siapa disitu?!"
+                                            show siluet at right
+                                            "Akan ku arahkan kau ke jalan keluarnya..."
+                                            hide siluet
+                                            hide anton bingung
                         "kanan":
                             a "Kalau tidak salah kesini..."
                             a "Eh? jalan buntu?"
@@ -914,7 +939,70 @@ label start:
             show siluet
             "Akan ku arahkan kau ke jalan keluarnya..."
 
-
+        scene karnaval
+        with fade
+        show ruth happy
+        show kevin happy at right
+        r "Ohiya aku harus kembali ke pantai"
+        ke "Sebentar dulu! kita belum masuk ke rumah hantu"
+        r "He? ada rumah hantu?"
+        ke "Wah kamu harus coba deh"
+        r "Sebentar aja gapapa yaa"
+        hide ruth happy
+        hide kevin happy
+        scene rumah hantu
+        with fade
+        show ruth sedih
+        show kevin happy
+        r "Kamu yakin kesini jalannya..."
+        ke "Tenang aja aku deket kamu kok"
+        r "Takut...."
+        ke "Kamu lurus terus.. abis itu turun ke tangga, masuk ke lubang di sampingnya"
+        ke "Disitu ada pintu rahasia"
+        r "Oke... tapi kamu ikut aku ya"
+        ke "Tenang aja..."
+        hide kevin happy
+        n "Ruth mengikuti arahan Kevin, disitu ia masuk ke ruangan yang sangat gelap, tidak melihat jalan masuk maupun keluar."
+        scene blackscreen
+        r "Kev? Kevin?!"
+        r "Duh... ini kemana..."
+        "APA YANG KAMU TAU TENTANG KELUARGA"
+        r "HIII?!"
+        "KAMU HARUS MENJAWAB PERTANYAAN INI ATAU KAMU TIDAK AKAN BISA KELUAR..."
+        r "M-menjawab apa..?"
+        hide ruth sedih
+        $ hangmanGame("rachel","Nama Ibu", 2)
+        $ hangmanGame("anton","Nama Ayah", 2)
+        $ hangmanGame("nathan","Nama Kakak", 2)
+        $ hangmanGame("ruth","Nama Adik", 2)
+        label trapped:
+            r "Oh aku menemukan jalan keluar!"
+            r "He..? INI DIMANA?!"
+        label free:
+            scene tunnelOut
+            r "Ada cahaya!"
+        scene hotel
+        with fade
+        show rachel sedih
+        i "Aduh... tadi anak-anakku... sekarang suamiku masih belum kunjung pulang..."
+        i "Mereka kemana ya..."
+        "*TokTok*"
+        hide rachel sedih
+        show rachel bingung
+        i "Yaaa? siapa ya?"
+        Character("???") "Ibu...? bisa tolong bukakan pintunya.."
+        i "Ruth? itu kamu?"
+        Character("Ruth?") "Ibu... Tolong bukakan pintunya.."
+        i "Iya nak, akan ibu bukakan"
+        i "*Tunggu... bukannya Ruth punya kunci kamar..?*"
+        i "*Mungkin ketinggalan...*"
+        hide rachel bingung
+        scene pintu
+        Character("Ruth?") "Ibu... Aku masih tidak bisa membuka pintunya..."
+        i "Iya nak sebentar akan aku bukakan pintunya..."
+        "*KLIK*"
+        "Terimakasih banyak bu..."
+        "BERSAMBUNG...."
     return
 
 #################BAD ENDINGS#################
@@ -1132,9 +1220,9 @@ init python:
                     lettersUsed += newLetter[0]
                     # This is where I would show a new graphic if I had graphic files to show
                     # renpy.show('hangman%d' % len(lettersUsed))
-                    if(len(lettersUsed) >= 5 && chapter == 1):
+                    if(len(lettersUsed) >= 5 and chapter == 1):
                         renpy.jump('homeworkhelp')
-                    elif(len(lettersUsed) >= 5 && chapter == 2):
+                    elif(len(lettersUsed) >= 5 and chapter == 2):
                         renpy.jump('trapped')
 
 

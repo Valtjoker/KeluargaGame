@@ -741,7 +741,10 @@ label start:
     k "WOHOOOOOO"
     k "Eh, sepertinya Ruth mempunyai teman baru disitu"
     k "eh-eh-EHHHHH untung nggak jatuh... aku harus menjaga keseimbanganku dulu..."
-    #MINIGAME
+    $ qtecount = 1
+    $ qtepoint = 20
+    jump qtech2
+
     if surfsuccess:
         jump safesurf
     else:
@@ -920,7 +923,6 @@ label start:
                             a "Siapa disitu?!"
                             show siluet
                             "Akan ku arahkan kau ke jalan keluarnya..."
-
         "lurus":
             a "Kalau tidak salah kesini..."
             a "Eh? jalan buntu?"
@@ -939,70 +941,70 @@ label start:
             show siluet
             "Akan ku arahkan kau ke jalan keluarnya..."
 
-        scene karnaval
-        with fade
-        show ruth happy
-        show kevin happy at right
-        r "Ohiya aku harus kembali ke pantai"
-        ke "Sebentar dulu! kita belum masuk ke rumah hantu"
-        r "He? ada rumah hantu?"
-        ke "Wah kamu harus coba deh"
-        r "Sebentar aja gapapa yaa"
-        hide ruth happy
-        hide kevin happy
-        scene rumah hantu
-        with fade
-        show ruth sedih
-        show kevin happy
-        r "Kamu yakin kesini jalannya..."
-        ke "Tenang aja aku deket kamu kok"
-        r "Takut...."
-        ke "Kamu lurus terus.. abis itu turun ke tangga, masuk ke lubang di sampingnya"
-        ke "Disitu ada pintu rahasia"
-        r "Oke... tapi kamu ikut aku ya"
-        ke "Tenang aja..."
-        hide kevin happy
-        n "Ruth mengikuti arahan Kevin, disitu ia masuk ke ruangan yang sangat gelap, tidak melihat jalan masuk maupun keluar."
-        scene blackscreen
-        r "Kev? Kevin?!"
-        r "Duh... ini kemana..."
-        "APA YANG KAMU TAU TENTANG KELUARGA"
-        r "HIII?!"
-        "KAMU HARUS MENJAWAB PERTANYAAN INI ATAU KAMU TIDAK AKAN BISA KELUAR..."
-        r "M-menjawab apa..?"
-        hide ruth sedih
-        $ hangmanGame("rachel","Nama Ibu", 2)
-        $ hangmanGame("anton","Nama Ayah", 2)
-        $ hangmanGame("nathan","Nama Kakak", 2)
-        $ hangmanGame("ruth","Nama Adik", 2)
-        label trapped:
-            r "Oh aku menemukan jalan keluar!"
-            r "He..? INI DIMANA?!"
-        label free:
-            scene tunnelOut
-            r "Ada cahaya!"
-        scene hotel
-        with fade
-        show rachel sedih
-        i "Aduh... tadi anak-anakku... sekarang suamiku masih belum kunjung pulang..."
-        i "Mereka kemana ya..."
-        "*TokTok*"
-        hide rachel sedih
-        show rachel bingung
-        i "Yaaa? siapa ya?"
-        Character("???") "Ibu...? bisa tolong bukakan pintunya.."
-        i "Ruth? itu kamu?"
-        Character("Ruth?") "Ibu... Tolong bukakan pintunya.."
-        i "Iya nak, akan ibu bukakan"
-        i "*Tunggu... bukannya Ruth punya kunci kamar..?*"
-        i "*Mungkin ketinggalan...*"
-        hide rachel bingung
-        scene pintu
-        Character("Ruth?") "Ibu... Aku masih tidak bisa membuka pintunya..."
-        i "Iya nak sebentar akan aku bukakan pintunya..."
-        "*KLIK*"
-        "Terimakasih banyak bu..."
-        "BERSAMBUNG...."
+    scene karnaval
+    with fade
+    show ruth happy
+    show kevin happy at right
+    r "Ohiya aku harus kembali ke pantai"
+    ke "Sebentar dulu! kita belum masuk ke rumah hantu"
+    r "He? ada rumah hantu?"
+    ke "Wah kamu harus coba deh"
+    r "Sebentar aja gapapa yaa"
+    hide ruth happy
+    hide kevin happy
+    scene rumah hantu
+    with fade
+    show ruth sedih
+    show kevin happy
+    r "Kamu yakin kesini jalannya..."
+    ke "Tenang aja aku deket kamu kok"
+    r "Takut...."
+    ke "Kamu lurus terus.. abis itu turun ke tangga, masuk ke lubang di sampingnya"
+    ke "Disitu ada pintu rahasia"
+    r "Oke... tapi kamu ikut aku ya"
+    ke "Tenang aja..."
+    hide kevin happy
+    n "Ruth mengikuti arahan Kevin, disitu ia masuk ke ruangan yang sangat gelap, tidak melihat jalan masuk maupun keluar."
+    scene blackscreen
+    r "Kev? Kevin?!"
+    r "Duh... ini kemana..."
+    "APA YANG KAMU TAU TENTANG KELUARGA"
+    r "HIII?!"
+    "KAMU HARUS MENJAWAB PERTANYAAN INI ATAU KAMU TIDAK AKAN BISA KELUAR..."
+    r "M-menjawab apa..?"
+    hide ruth sedih
+    $ hangmanGame("rachel","Nama Ibu", 2)
+    $ hangmanGame("anton","Nama Ayah", 2)
+    $ hangmanGame("nathan","Nama Kakak", 2)
+    $ hangmanGame("ruth","Nama Adik", 2)
+    label trapped:
+        r "Oh aku menemukan jalan keluar!"
+        r "He..? INI DIMANA?!"
+    label free:
+        scene tunnelOut
+        r "Ada cahaya!"
+    scene hotel
+    with fade
+    show rachel sedih
+    i "Aduh... tadi anak-anakku... sekarang suamiku masih belum kunjung pulang..."
+    i "Mereka kemana ya..."
+    "*TokTok*"
+    hide rachel sedih
+    show rachel bingung
+    i "Yaaa? siapa ya?"
+    Character("???") "Ibu...? bisa tolong bukakan pintunya.."
+    i "Ruth? itu kamu?"
+    Character("Ruth?") "Ibu... Tolong bukakan pintunya.."
+    i "Iya nak, akan ibu bukakan"
+    i "*Tunggu... bukannya Ruth punya kunci kamar..?*"
+    i "*Mungkin ketinggalan...*"
+    hide rachel bingung
+    scene pintu
+    Character("Ruth?") "Ibu... Aku masih tidak bisa membuka pintunya..."
+    i "Iya nak sebentar akan aku bukakan pintunya..."
+    "*KLIK*"
+    "Terimakasih banyak bu..."
+    "BERSAMBUNG...."
     return
 
 #################BAD ENDINGS#################
@@ -1173,6 +1175,26 @@ label start:
         $ qtecount = 1
         jump qte
 
+label qtech2:
+        scene ombak at fullsize
+$ cont = 0 #variabel continue
+
+call qte_setup(1.0, 1.0, 0.01, renpy.random.randint(1, 9) * 0.1, renpy.random.randint(1, 9) * 0.1)
+# Memanggil Fungsi qte_setup
+
+while cont == 1 and qtecount < qtepoint: # Fungsi pengulangan
+    call qte_setup(1.0, 1.0, 0.01, renpy.random.randint(1, 9) * 0.1, renpy.random.randint(1, 9) * 0.1)
+    $ qtecount += 1 #increment
+
+if qtecount == 20 and qtepoint == 20: #Jika mencapai 10 ronde
+    "COMPLETED"
+    jump safesurf
+
+else:   #jika player salah klik/waktu habis
+    play sound "sounds/miss.mp3"
+    "{b}GAME OVER{/b}"
+    $ qtecount = 1
+    jump drowned
 
 label qte_setup(time_start, time_max, interval, x_align, y_align):  #fungsi game QTE
 
@@ -1185,6 +1207,9 @@ label qte_setup(time_start, time_max, interval, x_align, y_align):  #fungsi game
     call screen qte_button #memanggil qte_button di qte.rpy
 
     $ cont = _return # return 1 jika tombol tertekan dengan tepat waktu dan 0 jika tidak
+
+
+
 
 
 init python:
